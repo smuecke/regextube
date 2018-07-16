@@ -1,0 +1,42 @@
+{
+
+  "manifest_version": 2,
+  "name": "RegexTube",
+  "version": "1.0",
+  "applications": {
+    "gecko": {
+      "id": "regextube@fickdich.com",
+      "strict_min_version": "42.0"
+    }
+  },
+
+  "description": "Filter YouTube subscription feed using regular expressions",
+
+  "icons": {
+    "48":  "icons/regextube-48.png",
+    "96":  "icons/regextube-96.png",
+    "256": "icons/regextube-256.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/feed/subscriptions"],
+      "js": ["js/jquery-3.3.1.min.js", "js/regextube.js"]
+    }
+  ],
+  
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true
+  },
+  
+  "browser_action": {
+    "default_icon": "icons/regextube-48.png",
+    "default_title": "RegexTube",
+    "default_popup": "popup/popup.html",
+    "browser_style": true
+  },
+  
+  "permissions": ["storage"]
+
+}
