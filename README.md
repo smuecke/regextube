@@ -46,7 +46,7 @@ You also might want to pack the addon yourself, e.g. after you modified it:
 5. Click on the gear symbol near the top and select *install addon from file*, then choose `RegexTube.xpi`
 6. Confirm that you want to add the addon
 
-I might get RegexTube licensed in the future.
+I might get RegexTube properly signed and published in the future.
 
 ## License
 
