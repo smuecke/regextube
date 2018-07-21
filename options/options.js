@@ -24,4 +24,10 @@ function initialize() {
     });
 };
 
-$(document).ready(initialize);
+$(document).ready(function() {
+    initialize();
+    
+    $("#import-json").click(function() {
+        // TODO
+    });
+});
