@@ -15,13 +15,19 @@ function initialize() {
     let getSettings = browser.storage.local.get("regextube-settings");
     getSettings.then(function(value) {
         settings = value["regextube-settings"];
-        if (typeof settings === "undefined")
-            settings = {
-                "case-sensitive": true
-            };
-        
         $("#case-sensitive").attr("checked", settings["case-sensitive"]);
+    }, function(reason) {
+        // no settings values => save default settings
+        var settings = { "case-sensitive": true };
+        browser.storage.local.set({ "regextube-settings" : settings });
+        initialize();
     });
 };
 
-$(document).ready(initialize);
+$(document).ready(function() {
+    initialize();
+    
+    $("#import-json").click(function() {
+        // TODO
+    });
+});

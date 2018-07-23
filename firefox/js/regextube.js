@@ -1,14 +1,21 @@
 var regexes;
 
 function initialize() {
-    console.log("[RegexTube] Initialize");
+    console.log("[RegexTube] Initialize");    
     let fetchRegexes = browser.storage.local.get("regextube");
     fetchRegexes.then(function(value) {
         buildRegexes(value["regextube"]);
-        browser.storage.onChanged.addListener(updateRegexes);
-        setTimeout(refreshVideos, 100);
-        setInterval(refreshVideos, 2000);
+        startUpdateLoop();
+    }, function(reason) {
+        browser.storage.local.set({ "regextube": [] });
+        startUpdateLoop();
     });
+}
+
+function startUpdateLoop() {
+    browser.storage.onChanged.addListener(updateRegexes);
+    setTimeout(refreshVideos, 100);
+    setInterval(refreshVideos, 2000);
 }
 
 function buildRegexes(popupData) {
@@ -29,6 +36,13 @@ function buildRegexes(popupData) {
                 inverted: obj.inverted
             });
         });
+    }, function(reason) {
+        // no settings values => save default settings
+        var settings = {"case-sensitive": true};
+        browser.storage.local.set({ "regextube-settings" : settings });
+        
+        // try again
+        buildRegexes(popupData);
     });
 }
 

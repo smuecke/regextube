@@ -34,13 +34,13 @@ Currently RegexTube is not officially published and can only be manually install
 
 This easy installation will probably work:
 
-1. Download `RegexTube.xpi` from this repository
+1. Download `firefox/RegexTube.xpi` from this repository
 2. Continue with step 4 below
 
 You also might want to pack the addon yourself, e.g. after you modified it:
 
 1. Clone `https://github.com/smuecke/regextube.git` to your computer to a directory `regextube`
-2. Select all files within `regextube` (except for `README.md` and the old `RegexTube.xpi` file) and compress them to a .zip file
+2. Select all files within `regextube/firefox` (except for `README.md` and the old `RegexTube.xpi` file) and compress them to a .zip file
 3. Select the .zip file, press `F2` and change the file name to `RegexTube.xpi`
 4. In Firefox, open the Addons menu (e.g. by typing `about:addons` in your URL bar)
 5. Click on the gear symbol near the top and select *install addon from file*, then choose `RegexTube.xpi`
